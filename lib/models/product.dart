@@ -2,8 +2,8 @@ class Product {
   final String id;
   final String name;
   final double price;
-  final String imageUrl; // Tambahkan ini
-  final String description; // Tambahkan ini
+  final String imageUrl;
+  final String description;
 
   Product({
     required this.id,

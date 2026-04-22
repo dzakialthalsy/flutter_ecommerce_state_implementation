@@ -26,7 +26,6 @@ class CartScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: ListView.builder(
-                    // Padding disesuaikan agar tidak terlalu lebar di desktop
                     padding: EdgeInsets.symmetric(
                       horizontal: isDesktop ? screenWidth * 0.2 : 15,
                       vertical: 20,
@@ -64,10 +63,7 @@ class CartScreen extends StatelessWidget {
                               Icons.delete_outline,
                               color: Colors.red,
                             ),
-                            onPressed: () {
-                              // Opsional: Kamu bisa tambah fungsi hapus di provider
-                              // cart.removeFromCart(item);
-                            },
+                            onPressed: () {},
                           ),
                         ),
                       );
@@ -80,7 +76,6 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  // Tampilan jika keranjang kosong
   Widget _buildEmptyState() {
     return Center(
       child: Column(
@@ -101,7 +96,6 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  // Bagian ringkasan pembayaran di bawah
   Widget _buildCheckoutSection(
     BuildContext context,
     CartProvider cart,
@@ -147,7 +141,7 @@ class CartScreen extends StatelessWidget {
             height: 50,
             child: ElevatedButton(
               onPressed: () {
-                // Logika checkout bisa ditaruh di sini
+                // Logika checkout
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.blueAccent,

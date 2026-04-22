@@ -62,7 +62,6 @@ class ProductListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Kita cek lebar layar untuk menyesuaikan tampilan
     final screenWidth = MediaQuery.of(context).size.width;
     final isDesktop = screenWidth > 600;
 
@@ -83,7 +82,6 @@ class ProductListScreen extends StatelessWidget {
                   context,
                 ).push(MaterialPageRoute(builder: (context) => CartScreen())),
               ),
-              // Circle notifikasi jumlah item (tambahan biar makin pro)
               Positioned(
                 right: 8,
                 top: 8,
@@ -101,7 +99,6 @@ class ProductListScreen extends StatelessWidget {
         ],
       ),
       body: ListView.builder(
-        // Padding dikurangi agar tidak terlalu sempit di sisi samping
         padding: EdgeInsets.symmetric(
           horizontal: isDesktop ? screenWidth * 0.2 : 15,
           vertical: 20,
@@ -111,9 +108,7 @@ class ProductListScreen extends StatelessWidget {
           final product = products[i];
           return Card(
             elevation: 4,
-            margin: const EdgeInsets.only(
-              bottom: 25,
-            ), // Jarak antar card diperlebar
+            margin: const EdgeInsets.only(bottom: 25),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
             ),
@@ -126,16 +121,13 @@ class ProductListScreen extends StatelessWidget {
                   ),
                   child: Image.network(
                     product.imageUrl,
-                    // Height dinaikkan jadi 300-350 agar lebih "panjang" dan megah
                     height: isDesktop ? 400 : 250,
                     width: double.infinity,
-                    // BoxFit.cover tetap yang terbaik untuk estetika,
-                    // tapi dengan height lebih tinggi, gambar tidak akan terpotong parah.
                     fit: BoxFit.cover,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(20), // Padding dalam diperbesar
+                  padding: const EdgeInsets.all(20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -166,7 +158,7 @@ class ProductListScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       SizedBox(
-                        height: 50, // Tombol dipertebal
+                        height: 50,
                         width: double.infinity,
                         child: ElevatedButton.icon(
                           onPressed: () {
